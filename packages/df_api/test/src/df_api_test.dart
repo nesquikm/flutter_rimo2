@@ -10,8 +10,7 @@ void main() {
   late String serviceAccountJson;
   group('DfApi', () {
     setUpAll(() {
-      serviceAccountJson =
-          File('rimorse2-xphn-b74dc6b8345f.json').readAsStringSync();
+      serviceAccountJson = File('rimorse2-key.json').readAsStringSync();
     });
     test('can be instantiated', () async {
       final dfApi =
