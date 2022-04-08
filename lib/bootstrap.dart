@@ -1,14 +1,10 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:df_repository/df_repository.dart';
+import 'package:entities_repository/entities_repository.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_services_binding/flutter_services_binding.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -28,13 +24,27 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+Future<void> bootstrap(
+  FutureOr<Widget> Function({
+    EntitiesRepository entitiesRepository,
+    DfRepository dfRepository,
+  })
+      builder,
+) async {
   // WidgetsFlutterBinding.ensureInitialized();
   FlutterServicesBinding.ensureInitialized();
 
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
+
+  final serviceAccountJson =
+      await rootBundle.loadString('assets/rimorse2-xphn-b74dc6b8345f.json');
+  final entitiesRepository = EntitiesRepository();
+  final dfRepository = DfRepository(
+    serviceAccountJson: serviceAccountJson,
+    project: 'rimorse2-xphn',
+  );
 
   final storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -43,7 +53,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   );
 
   await HydratedBlocOverrides.runZoned(
-    () async => runApp(await builder()),
+    () async => runApp(
+      await builder(
+        entitiesRepository: entitiesRepository,
+        dfRepository: dfRepository,
+      ),
+    ),
     storage: storage,
     blocObserver: AppBlocObserver(),
   );

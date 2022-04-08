@@ -8,7 +8,6 @@
 import 'package:df_repository/df_repository.dart';
 import 'package:entities_repository/entities_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_rimo2/app/cubit/nav_cubit.dart';
@@ -26,18 +25,17 @@ const chatPath = '/chat';
 const chatName = 'chat';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({
+    Key? key,
+    this.entitiesRepository,
+    this.dfRepository,
+  }) : super(key: key);
+
+  final EntitiesRepository? entitiesRepository;
+  final DfRepository? dfRepository;
 
   @override
   Widget build(BuildContext context) {
-    final serviceAccountJson =
-        rootBundle.loadString('assets/rimorse2-xphn-b74dc6b8345f.json');
-    final entitiesRepository = EntitiesRepository();
-    final dfRepository = DfRepository(
-      serviceAccountJson: serviceAccountJson,
-      project: 'rimorse2-xphn',
-    );
-
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider.value(value: entitiesRepository),
@@ -65,41 +63,34 @@ class AppView extends StatelessWidget {
         GoRoute(
           path: charactersPath,
           name: charactersName,
-          builder: (_, __) => const CharactersPage(),
+          pageBuilder: (context, state) => NoTransitionPage<void>(
+            key: state.pageKey,
+            child: const CharactersPage(),
+          ),
         ),
-        // GoRoute(
-        //   path: locationsPath,
-        //   name: locationsName,
-        //   builder: (_, __) => const LocationsPage(),
-        // ),
-        // GoRoute(
-        //   path: episodesPath,
-        //   name: episodesName,
-        //   builder: (_, __) => const EpisodesPage(),
-        // ),
-        // GoRoute(
-        //   path: episodesPath,
-        //   name: episodesName,
-        //   pageBuilder: (context, state) => CustomTransitionPage<void>(
-        //     key: state.pageKey,
-        //     child: const EpisodesPage(),
-        //     transitionsBuilder:
-        //         (context, animation, secondaryAnimation, child) =>
-        //             ScaleTransition(scale: animation, child: child),
-        //   ),
-        // ),
-        // GoRoute(
-        //   path: episodesPath,
-        //   name: episodesName,
-        //   pageBuilder: (context, state) => NoTransitionPage<void>(
-        //     key: state.pageKey,
-        //     child: const EpisodesPage(),
-        //   ),
-        // ),
+        GoRoute(
+          path: locationsPath,
+          name: locationsName,
+          pageBuilder: (context, state) => NoTransitionPage<void>(
+            key: state.pageKey,
+            child: const LocationsPage(),
+          ),
+        ),
+        GoRoute(
+          path: episodesPath,
+          name: episodesName,
+          pageBuilder: (context, state) => NoTransitionPage<void>(
+            key: state.pageKey,
+            child: const EpisodesPage(),
+          ),
+        ),
         GoRoute(
           path: chatPath,
           name: chatName,
-          builder: (_, __) => const ChatPage(),
+          pageBuilder: (context, state) => NoTransitionPage<void>(
+            key: state.pageKey,
+            child: const ChatPage(),
+          ),
         ),
       ],
       navigatorBuilder: (context, state, child) => Navigator(
@@ -127,6 +118,12 @@ class AppView extends StatelessWidget {
     return MaterialApp.router(
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.green,
+          brightness: Brightness.dark,
+        ),
+      ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

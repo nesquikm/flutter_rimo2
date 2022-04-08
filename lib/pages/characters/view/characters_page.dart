@@ -10,8 +10,8 @@ class CharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CharactersBloc(context.read<EntitiesRepository>()),
-      // ..add(CharactersFetchFirstPage()),
+      create: (context) => CharactersBloc(context.read<EntitiesRepository>())
+        ..add(CharactersFetchFirstPage()),
       child: const CharactersView(),
     );
   }

@@ -9,5 +9,5 @@ import 'package:flutter_rimo2/app/app.dart';
 import 'package:flutter_rimo2/bootstrap.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(App.new);
 }
