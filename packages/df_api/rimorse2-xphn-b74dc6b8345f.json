@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rimorse2-xphn",
+  "private_key_id": "b74dc6b8345f98424e3fda0b85ffb91c74f75e3d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCDPBxM5uwYD+r2\nRoiVniOIIkrzvG0zo6E/xprfMM6gRz2bgtb5o0o4JXlihoArO23MLUh7k4gQlwoo\nCRjxaRpFCdWKkTXfpMudSegCftYudwb5qCkJJkyK/tT+Jt0Oyl3/bTfe3j/mP1Nn\nQRjzDVm5gxhrYEWgqBHDO4xCW2Cs7R/2awhO0D3+sHwJvxTVYzZcpDZZCgPG1391\nWtF6bFg2EJrsn4h120soBJC4q2VHErqu0seZNjghTVvM+dbCuppz4sB9SPNAuPdQ\nOJIvNs9k2ZuyofvAbM5DPmyQhze3HMSXBIHSi0OgygDSNFEo3YrHxpfgGjysjumX\nzHYwalWvAgMBAAECggEAPfZAqnKRYF8LohH1ZScQQbNnTiNWL/5/INyFvQGPXY+l\nX+pr09wsK8xNvp4gn8jkc3Wh9m7W3HZj3jlFZJ4qQBR/lXgwRpLJbE870wnN2Ixs\nZ63lCiPiGfJt4D27O8OClBoeOgUXiH+3wlWzEPbpuTRTcEc5OLyB/nr8I0x/ncV+\nr0J+gVgOQN0DW2uf1OUDcEP0Hv7xNR/6VeWy3PZtouiyLZa5zC2KUam8OswyVdQT\nmL29ZFTX+NR7dfs+5GHqTdZcZYXw5F6AQilkf3tV7Pygl40BvJUpnwmoQiNtfJZ+\nz2JFFHNoURXoaRQYu0Q3AJtsGDa1QKqKSpBdZwCWEQKBgQC3p3wKmGYqMAAq/09Y\nD6mDpAZA/KShxrP1XeloW/pIu+ecUmUkmhUJSZpc4qisxEKWlqdD/zVYJ3lpiMum\nxFVV9hiqbUYTY4Zif3uhsDlz4T1lSuHLyO2OSF3UB7Jybwc1kRUHqaEfNmcnRpGD\nyrkaKQYYok+I8O9Lef7sVK676QKBgQC27mqBN7Z3xigi+Lk6ERzd/PN3w8Uk8XXj\nR0263rbOckocm3YraSU43aUeDEvdGn3tCYpAEPRjVVn2dx8U3mVpKRtegzjaqnZs\n3dRKGL/5g7R06queHMChxtgptRZluaB2tYKhT6/7qEbS9+M4MpNh4O0mfzfwRg2+\nW0SVPUQ91wKBgCNdcRlpN2MwUxf0igbfHTloQHwLKnislsLNDsE11QBkjrkfdLKT\nqTFcpwjz7J84O8pbwGHrpw4Oq+aSnQTEEdq3xRAscq4RIDOfcOM12BpkaTo0LT7c\ntkIL1WWbBdXbY3wBMBeFpq0oAL0jban/Q52yAKaFuuMX4jyahWhk9jDhAoGBAID8\nveadZTExbW2zWdBC7srsqLQjO6igBdMbnQiOL/KEDhP73qgffNqLFvmIDBo8qtxw\nJKamDdzY+xVZy3XIl1M+ZAkRmA4/sj9zb1RL/Vmv75edPSPA/GdWMWe/Q6q46Bes\nRw79hIZ7km0B05r1toyGsFG71LK8gsZdzo844xyDAoGBAI7l5LMzn0I9rSdhpSxg\nEwMcuwpLaFnh4L7j5x7rb7AN/M4F7aixQ350C8XQj89D+r/QRKZ7m2PShXM3NpCl\nJn+iQXnKjwNNiFzWJ+cmROTQNt/DwzATX18SSB6+BRZgtUWzWbseZRJHCfsue/nx\ntDjJdOurgK3+jcfm6I5P7PcX\n-----END PRIVATE KEY-----\n",
+  "client_email": "flutter-rimo-285@rimorse2-xphn.iam.gserviceaccount.com",
+  "client_id": "107122054963261479523",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/flutter-rimo-285%40rimorse2-xphn.iam.gserviceaccount.com"
+}

@@ -1,0 +1,91 @@
+{
+  "@@locale": "en",
+  "appBarTitleCharacters": "Characters",
+  "@appBarTitleCharacters": {
+    "description": "App bar title for Characters page"
+  },
+  "charactersErrorSnackbarText": "An error occurred while loading characters",
+  "@charactersErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading characters"
+  },
+  "appBarTitleLocations": "Locations",
+  "@appBarTitleLocations": {
+    "description": "App bar title for Locations page"
+  },
+  "locationsErrorSnackbarText": "An error occurred while loading locations",
+  "@locationsErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading locations"
+  },
+  "appBarTitleEpisodes": "Episodes",
+  "@appBarTitleEpisodes": {
+    "description": "App bar title for Locations page"
+  },
+  "episodesErrorSnackbarText": "An error occurred while loading locations",
+  "@episodesErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading locations"
+  },
+  "appBarTitleCharacter": "Character",
+  "@appBarTitleCharacter": {
+    "description": "App bar title for Character page"
+  },
+  "characterStatus": "Status",
+  "@characterStatus": {
+    "description": "The status of the character"
+  },
+  "characterSpecies": "Species",
+  "@characterSpecies": {
+    "description": "The species of the character"
+  },
+  "characterGender": "Gender",
+  "@charactergender": {
+    "description": "The gender of the character"
+  },
+  "characterOriginLocation": "Origin location",
+  "@characterOriginLocation": {
+    "description": "Character's origin loca2tion"
+  },
+  "characterLastKnownLocation": "Last known location",
+  "@characterLastKnownLocation": {
+    "description": "Last character's known location"
+  },
+  "characterErrorSnackbarText": "An error occurred while loading character",
+  "@characterErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading character"
+  },
+  "appBarTitleLocation": "Location",
+  "@appBarTitleLocation": {
+    "description": "App bar title for Location page"
+  },
+  "locationErrorSnackbarText": "An error occurred while loading location",
+  "@locationErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading location"
+  },
+  "locationType": "Type",
+  "@locationType": {
+    "description": "The type of the location"
+  },
+  "locationDimension": "Dimension",
+  "@locationDimension": {
+    "description": "The dimension in which the location is located"
+  },
+  "appBarTitleEpisode": "Episode",
+  "@appBarTitleEpisode": {
+    "description": "App bar title for Episode page"
+  },
+  "episodeErrorSnackbarText": "An error occurred while loading episode",
+  "@episodeErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading episode"
+  },
+  "episodeAirDate": "Air date",
+  "@episodeAirDate": {
+    "description": "The air date of the episode"
+  },
+  "appBarTitleChat": "Chat",
+  "@appBarTitleChat": {
+    "description": "App bar title for Chat page"
+  },
+  "chatErrorSnackbarText": "An error occurred while loading chat",
+  "@chatErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading chat"
+  }
+}
