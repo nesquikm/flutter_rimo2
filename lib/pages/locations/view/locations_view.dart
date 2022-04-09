@@ -26,6 +26,7 @@ class LocationsView extends StatelessWidget {
     }
 
     void _onTap(int id) {
+      // TODO(nesquikm): Navigate!
       // Navigator.of(context).push(
       //   LocationInfoPage.route(
       //     id: id,

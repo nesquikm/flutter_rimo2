@@ -26,6 +26,7 @@ class EpisodesView extends StatelessWidget {
     }
 
     void _onTap(int id) {
+      // TODO(nesquikm): Navigate!
       // Navigator.of(context).push(
       //   EpisodeInfoPage.route(
       //     id: id,

@@ -13,12 +13,14 @@ class ChatViewMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     void _onTap() {
       if (chatMessage.characterId != null) {
+        // TODO(nesquikm): Navigate!
         // Navigator.of(context).push(
         //   CharacterInfoPage.route(
         //     id: chatMessage.characterId!,
         //   ),
         // );
       } else if (chatMessage.episodeId != null) {
+        // TODO(nesquikm): Navigate!
         // Navigator.of(context).push(
         //   EpisodeInfoPage.route(
         //     id: chatMessage.episodeId!,
