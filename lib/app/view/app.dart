@@ -15,15 +15,6 @@ import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
-const charactersPath = '/characters';
-const charactersName = 'characters';
-const locationsPath = '/locations';
-const locationsName = 'locations';
-const episodesPath = '/episodes';
-const episodesName = 'episodes';
-const chatPath = '/chat';
-const chatName = 'chat';
-
 class App extends StatelessWidget {
   const App({
     Key? key,
@@ -44,7 +35,7 @@ class App extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) => NavCubit(charactersPath),
+            create: (_) => NavCubit('/${HomePage.pageList[0]}'),
           ),
         ],
         child: const AppView(),
@@ -61,52 +52,14 @@ class AppView extends StatelessWidget {
     final router = GoRouter(
       routes: [
         GoRoute(
-          path: charactersPath,
-          name: charactersName,
+          path: '/:page',
+          name: 'home',
           pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
-            child: const CharactersPage(),
-          ),
-        ),
-        GoRoute(
-          path: locationsPath,
-          name: locationsName,
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: const LocationsPage(),
-          ),
-        ),
-        GoRoute(
-          path: episodesPath,
-          name: episodesName,
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: const EpisodesPage(),
-          ),
-        ),
-        GoRoute(
-          path: chatPath,
-          name: chatName,
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: const ChatPage(),
+            child: HomePage(pageName: state.params['page'] ?? ''),
           ),
         ),
       ],
-      navigatorBuilder: (context, state, child) => Navigator(
-        onPopPage: (route, dynamic result) {
-          route.didPop(result);
-          return false; // don't pop the single page on the root navigator
-        },
-        pages: [
-          MaterialPage<void>(
-            child: SharedScaffold(
-              activeName: Uri.parse(state.location).pathSegments.first,
-              body: child,
-            ),
-          ),
-        ],
-      ),
       redirect: (state) {
         context.read<NavCubit>().setLocation(state.location);
 
@@ -115,6 +68,7 @@ class AppView extends StatelessWidget {
       initialLocation: context.read<NavCubit>().state.location,
       debugLogDiagnostics: true,
     );
+
     return MaterialApp.router(
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
@@ -129,87 +83,6 @@ class AppView extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-    );
-  }
-}
-
-class SharedScaffold extends StatelessWidget {
-  const SharedScaffold({
-    Key? key,
-    required this.activeName,
-    required this.body,
-  }) : super(key: key);
-
-  final String activeName;
-  final Widget body;
-
-  @override
-  Widget build(BuildContext context) {
-    void _onPressed(String location) {
-      context.goNamed(location);
-    }
-
-    return Scaffold(
-      body: body,
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _NavBarButton(
-              name: charactersName,
-              activeName: activeName,
-              onPressed: _onPressed,
-              icon: Icons.person,
-            ),
-            _NavBarButton(
-              name: locationsName,
-              activeName: activeName,
-              onPressed: _onPressed,
-              icon: Icons.location_pin,
-            ),
-            _NavBarButton(
-              name: episodesName,
-              activeName: activeName,
-              onPressed: _onPressed,
-              icon: Icons.list_alt,
-            ),
-            _NavBarButton(
-              name: chatName,
-              activeName: activeName,
-              onPressed: _onPressed,
-              icon: Icons.chat,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _NavBarButton extends StatelessWidget {
-  const _NavBarButton({
-    Key? key,
-    required this.name,
-    required this.activeName,
-    required this.onPressed,
-    required this.icon,
-  }) : super(key: key);
-
-  final String name;
-  final String activeName;
-  final Function(String) onPressed;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () => onPressed(name),
-      iconSize: 32,
-      color:
-          name == activeName ? Theme.of(context).colorScheme.secondary : null,
-      icon: Icon(
-        icon,
-      ),
     );
   }
 }
