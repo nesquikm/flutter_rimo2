@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/characters/bloc/characters_bloc.dart';
 import 'package:flutter_rimo2/pages/characters/view/character_view.dart';
+import 'package:go_router/go_router.dart';
 
 class CharactersView extends StatelessWidget {
   const CharactersView({Key? key}) : super(key: key);
@@ -26,12 +27,7 @@ class CharactersView extends StatelessWidget {
     }
 
     void _onTap(int id) {
-      // TODO(nesquikm): Navigate!
-      // Navigator.of(context).push(
-      //   CharacterInfoPage.route(
-      //     id: id,
-      //   ),
-      // );
+      context.goNamed('character', params: {'page': 'characters', 'id': '$id'});
     }
 
     _scrollController.addListener(_onScroll);

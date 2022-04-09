@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/locations/bloc/locations_bloc.dart';
 import 'package:flutter_rimo2/pages/locations/view/location_view.dart';
+import 'package:go_router/go_router.dart';
 
 class LocationsView extends StatelessWidget {
   const LocationsView({Key? key}) : super(key: key);
@@ -26,12 +27,7 @@ class LocationsView extends StatelessWidget {
     }
 
     void _onTap(int id) {
-      // TODO(nesquikm): Navigate!
-      // Navigator.of(context).push(
-      //   LocationInfoPage.route(
-      //     id: id,
-      //   ),
-      // );
+      context.goNamed('location', params: {'page': 'locations', 'id': '$id'});
     }
 
     _scrollController.addListener(_onScroll);

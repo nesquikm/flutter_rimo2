@@ -54,10 +54,28 @@ class AppView extends StatelessWidget {
         GoRoute(
           path: '/:page',
           name: 'home',
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: HomePage(pageName: state.params['page'] ?? ''),
-          ),
+          builder: (context, state) =>
+              HomePage(pageName: state.params['page'] ?? ''),
+          routes: [
+            GoRoute(
+              path: 'character/:id',
+              name: 'character',
+              builder: (context, state) =>
+                  CharacterInfoPage(id: int.parse(state.params['id'] ?? '')),
+            ),
+            GoRoute(
+              path: 'location/:id',
+              name: 'location',
+              builder: (context, state) =>
+                  LocationInfoPage(id: int.parse(state.params['id'] ?? '')),
+            ),
+            GoRoute(
+              path: 'episode/:id',
+              name: 'episode',
+              builder: (context, state) =>
+                  EpisodeInfoPage(id: int.parse(state.params['id'] ?? '')),
+            ),
+          ],
         ),
       ],
       redirect: (state) {

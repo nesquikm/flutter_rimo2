@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/episodes/bloc/episodes_bloc.dart';
 import 'package:flutter_rimo2/pages/episodes/view/episode_view.dart';
+import 'package:go_router/go_router.dart';
 
 class EpisodesView extends StatelessWidget {
   const EpisodesView({Key? key}) : super(key: key);
@@ -26,12 +27,7 @@ class EpisodesView extends StatelessWidget {
     }
 
     void _onTap(int id) {
-      // TODO(nesquikm): Navigate!
-      // Navigator.of(context).push(
-      //   EpisodeInfoPage.route(
-      //     id: id,
-      //   ),
-      // );
+      context.goNamed('episode', params: {'page': 'episodes', 'id': '$id'});
     }
 
     _scrollController.addListener(_onScroll);
