@@ -62,14 +62,4 @@ Future<void> bootstrap(
     storage: storage,
     blocObserver: AppBlocObserver(),
   );
-
-  // await runZonedGuarded(
-  //   () async {
-  //     await BlocOverrides.runZoned(
-  //       () async => runApp(await builder()),
-  //       blocObserver: AppBlocObserver(),
-  //     );
-  //   },
-  //   (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
-  // );
 }

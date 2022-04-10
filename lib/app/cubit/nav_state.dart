@@ -1,6 +1,5 @@
 part of 'nav_cubit.dart';
 
-// @immutable
 @JsonSerializable()
 class NavState extends Equatable {
   const NavState(this.location);

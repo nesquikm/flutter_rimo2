@@ -8,7 +8,7 @@ import 'package:rimo_api/src/services/models/models.dart';
 
 /// {@template rimo_api_character}
 /// The interface and models for an API providing access to character.
-// /// {@endtemplate}
+/// {@endtemplate}
 
 class ApiCharacterFailure implements Exception {}
 
