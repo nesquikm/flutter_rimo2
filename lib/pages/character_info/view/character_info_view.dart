@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/character_info/bloc/character_info_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class CharacterInfoView extends StatelessWidget {
@@ -24,13 +25,11 @@ class CharacterInfoView extends StatelessWidget {
       if (url == null || url.isEmpty) return;
       final idString = RegExp(r'[0-9]+$').firstMatch(url)?.group(0);
       if (idString == null) return;
-      // final id = int.parse(idString);
-      // TODO(nesquikm): Navigate!
-      // Navigator.of(context).push(
-      //   LocationInfoPage.route(
-      //     id: id,
-      //   ),
-      // );
+      final id = int.parse(idString);
+      context.pushNamed(
+        'location',
+        params: {'page': 'chat', 'id': '$id'},
+      );
     }
 
     return Scaffold(

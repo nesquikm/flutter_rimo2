@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_rimo2/pages/character_info/view/view.dart';
 import 'package:flutter_rimo2/pages/chat/models/chat_message.dart';
-// import 'package:flutter_rimo2/pages/episode_info/view/view.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatViewMessage extends StatelessWidget {
   const ChatViewMessage({Key? key, required this.chatMessage})
@@ -13,19 +12,15 @@ class ChatViewMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     void _onTap() {
       if (chatMessage.characterId != null) {
-        // TODO(nesquikm): Navigate!
-        // Navigator.of(context).push(
-        //   CharacterInfoPage.route(
-        //     id: chatMessage.characterId!,
-        //   ),
-        // );
+        context.goNamed(
+          'character',
+          params: {'page': 'chat', 'id': '${chatMessage.characterId}'},
+        );
       } else if (chatMessage.episodeId != null) {
-        // TODO(nesquikm): Navigate!
-        // Navigator.of(context).push(
-        //   EpisodeInfoPage.route(
-        //     id: chatMessage.episodeId!,
-        //   ),
-        // );
+        context.goNamed(
+          'episode',
+          params: {'page': 'chat', 'id': '${chatMessage.episodeId}'},
+        );
       }
     }
 
