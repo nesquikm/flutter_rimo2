@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/character_info/bloc/character_info_bloc.dart';
+import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
@@ -24,8 +25,8 @@ class CharacterInfoView extends StatelessWidget {
     void _onLocationTap(int? id) {
       if (id == null) return;
       context.pushNamed(
-        'location',
-        params: {'page': 'chat', 'id': '$id'},
+        InfoPageName.location.name,
+        params: {'page': HomePageName.chat.name, 'id': '$id'},
       );
     }
 

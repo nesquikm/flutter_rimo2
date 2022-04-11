@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/episodes/bloc/episodes_bloc.dart';
 import 'package:flutter_rimo2/pages/episodes/view/episode_view.dart';
+import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class EpisodesView extends StatefulWidget {
@@ -39,7 +40,10 @@ class _EpisodesViewState extends State<EpisodesView> {
     }
 
     void _onTap(int id) {
-      context.goNamed('episode', params: {'page': 'episodes', 'id': '$id'});
+      context.goNamed(
+        InfoPageName.episode.name,
+        params: {'page': HomePageName.episodes.name, 'id': '$id'},
+      );
     }
 
     _scrollController.addListener(_onScroll);

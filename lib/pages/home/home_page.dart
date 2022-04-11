@@ -4,15 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
+enum HomePageName {
+  characters,
+  locations,
+  episodes,
+  chat,
+}
+
+enum InfoPageName {
+  character,
+  location,
+  episode,
+}
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key, required this.pageName}) : super(key: key);
 
-  static List<String> pageList = [
-    'characters',
-    'locations',
-    'episodes',
-    'chat',
-  ];
+  static List<String> pageList =
+      HomePageName.values.map((e) => e.name).toList();
 
   final String pageName;
 

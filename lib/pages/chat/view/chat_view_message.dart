@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rimo2/pages/chat/models/chat_message.dart';
+import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class ChatViewMessage extends StatelessWidget {
@@ -13,13 +14,19 @@ class ChatViewMessage extends StatelessWidget {
     void _onTap() {
       if (chatMessage.characterId != null) {
         context.goNamed(
-          'character',
-          params: {'page': 'chat', 'id': '${chatMessage.characterId}'},
+          InfoPageName.character.name,
+          params: {
+            'page': HomePageName.chat.name,
+            'id': '${chatMessage.characterId}'
+          },
         );
       } else if (chatMessage.episodeId != null) {
         context.goNamed(
-          'episode',
-          params: {'page': 'chat', 'id': '${chatMessage.episodeId}'},
+          InfoPageName.episode.name,
+          params: {
+            'page': HomePageName.chat.name,
+            'id': '${chatMessage.episodeId}'
+          },
         );
       }
     }

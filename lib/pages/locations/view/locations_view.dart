@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/locations/bloc/locations_bloc.dart';
 import 'package:flutter_rimo2/pages/locations/view/location_view.dart';
+import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class LocationsView extends StatefulWidget {
@@ -39,7 +40,10 @@ class _LocationsViewState extends State<LocationsView> {
     }
 
     void _onTap(int id) {
-      context.goNamed('location', params: {'page': 'locations', 'id': '$id'});
+      context.goNamed(
+        InfoPageName.location.name,
+        params: {'page': HomePageName.locations.name, 'id': '$id'},
+      );
     }
 
     _scrollController.addListener(_onScroll);
