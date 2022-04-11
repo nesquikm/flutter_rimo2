@@ -5,13 +5,25 @@ import 'package:flutter_rimo2/pages/episodes/bloc/episodes_bloc.dart';
 import 'package:flutter_rimo2/pages/episodes/view/episode_view.dart';
 import 'package:go_router/go_router.dart';
 
-class EpisodesView extends StatelessWidget {
+class EpisodesView extends StatefulWidget {
   const EpisodesView({Key? key}) : super(key: key);
+
+  @override
+  State<EpisodesView> createState() => _EpisodesViewState();
+}
+
+class _EpisodesViewState extends State<EpisodesView> {
+  late final ScrollController _scrollController;
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController = ScrollController();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final _scrollController = ScrollController();
 
     bool _isBottom() {
       if (!_scrollController.hasClients) return false;

@@ -5,13 +5,25 @@ import 'package:flutter_rimo2/pages/locations/bloc/locations_bloc.dart';
 import 'package:flutter_rimo2/pages/locations/view/location_view.dart';
 import 'package:go_router/go_router.dart';
 
-class LocationsView extends StatelessWidget {
+class LocationsView extends StatefulWidget {
   const LocationsView({Key? key}) : super(key: key);
+
+  @override
+  State<LocationsView> createState() => _LocationsViewState();
+}
+
+class _LocationsViewState extends State<LocationsView> {
+  late final ScrollController _scrollController;
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController = ScrollController();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final _scrollController = ScrollController();
 
     bool _isBottom() {
       if (!_scrollController.hasClients) return false;

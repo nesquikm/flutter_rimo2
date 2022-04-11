@@ -6,11 +6,28 @@ import 'package:flutter_rimo2/l10n/l10n.dart';
 import 'package:flutter_rimo2/pages/chat/bloc/chat_bloc.dart';
 import 'package:flutter_rimo2/pages/chat/view/chat_view_message.dart';
 
-class ChatView extends StatelessWidget {
-  ChatView({Key? key}) : super(key: key);
-  final TextEditingController textEditingController = TextEditingController();
-  final _random = Random();
-  final ScrollController _listScrollController = ScrollController();
+class ChatView extends StatefulWidget {
+  const ChatView({Key? key}) : super(key: key);
+
+  @override
+  State<ChatView> createState() => _ChatViewState();
+}
+
+class _ChatViewState extends State<ChatView> {
+  late final TextEditingController textEditingController;
+
+  late final Random _random;
+
+  late final ScrollController _listScrollController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _listScrollController = ScrollController();
+    textEditingController = TextEditingController();
+    _random = Random();
+  }
 
   Future<void> _onSend({
     required BuildContext context,

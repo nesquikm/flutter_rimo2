@@ -15,7 +15,7 @@ class ChatPage extends StatelessWidget {
         context.read<EntitiesRepository>(),
         context.read<DfRepository>(),
       ),
-      child: ChatView(),
+      child: const ChatView(),
     );
   }
 }

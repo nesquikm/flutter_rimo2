@@ -5,13 +5,25 @@ import 'package:flutter_rimo2/pages/characters/bloc/characters_bloc.dart';
 import 'package:flutter_rimo2/pages/characters/view/character_view.dart';
 import 'package:go_router/go_router.dart';
 
-class CharactersView extends StatelessWidget {
+class CharactersView extends StatefulWidget {
   const CharactersView({Key? key}) : super(key: key);
+
+  @override
+  State<CharactersView> createState() => _CharactersViewState();
+}
+
+class _CharactersViewState extends State<CharactersView> {
+  late final ScrollController _scrollController;
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController = ScrollController();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final _scrollController = ScrollController();
 
     bool _isBottom() {
       if (!_scrollController.hasClients) return false;
