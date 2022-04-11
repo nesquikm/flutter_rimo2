@@ -1,23 +1,13 @@
-import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:df_repository/df_repository.dart';
 import 'package:entities_repository/entities_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_rimo2/pages/chat/models/models.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stream_transform/stream_transform.dart';
 
 part 'chat_bloc.g.dart';
 part 'chat_event.dart';
 part 'chat_state.dart';
-
-const throttleDuration = Duration(milliseconds: 100);
-
-EventTransformer<E> throttleDroppable<E>(Duration duration) {
-  return (events, mapper) {
-    return droppable<E>().call(events.throttle(duration), mapper);
-  };
-}
 
 class ChatBloc extends HydratedBloc<ChatEvent, ChatState> {
   ChatBloc(EntitiesRepository entitiesRepository, DfRepository dfRepository)

@@ -1,23 +1,15 @@
-import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:entities_repository/entities_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_rimo2/pages/utils/throttle_droppable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stream_transform/stream_transform.dart';
 
 part 'episode_info_bloc.g.dart';
 part 'episode_info_event.dart';
 part 'episode_info_state.dart';
 
-const throttleDuration = Duration(milliseconds: 100);
-
-EventTransformer<E> throttleDroppable<E>(Duration duration) {
-  return (events, mapper) {
-    return droppable<E>().call(events.throttle(duration), mapper);
-  };
-}
-
-class EpisodeInfoBloc extends HydratedBloc<EpisodeInfoEvent, EpisodeInfoState> {
+class EpisodeInfoBloc extends HydratedBloc<EpisodeInfoEvent, EpisodeInfoState>
+    with ThrottleDroppable {
   EpisodeInfoBloc(EntitiesRepository entitiesRepository)
       : _apiEpisode = entitiesRepository.apiEpisode,
         super(EpisodeInfoInitial()) {
@@ -31,7 +23,7 @@ class EpisodeInfoBloc extends HydratedBloc<EpisodeInfoEvent, EpisodeInfoState> {
 
     on<EpisodeInfoFetchById>(
       _fetchById,
-      transformer: throttleDroppable(throttleDuration),
+      transformer: throttleDroppable(),
     );
   }
 

@@ -1,24 +1,16 @@
-import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:entities_repository/entities_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_rimo2/pages/utils/throttle_droppable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stream_transform/stream_transform.dart';
 
 part 'location_info_bloc.g.dart';
 part 'location_info_event.dart';
 part 'location_info_state.dart';
 
-const throttleDuration = Duration(milliseconds: 100);
-
-EventTransformer<E> throttleDroppable<E>(Duration duration) {
-  return (events, mapper) {
-    return droppable<E>().call(events.throttle(duration), mapper);
-  };
-}
-
 class LocationInfoBloc
-    extends HydratedBloc<LocationInfoEvent, LocationInfoState> {
+    extends HydratedBloc<LocationInfoEvent, LocationInfoState>
+    with ThrottleDroppable {
   LocationInfoBloc(EntitiesRepository entitiesRepository)
       : _apiLocation = entitiesRepository.apiLocation,
         super(LocationInfoInitial()) {
@@ -32,7 +24,7 @@ class LocationInfoBloc
 
     on<LocationInfoFetchById>(
       _fetchById,
-      transformer: throttleDroppable(throttleDuration),
+      transformer: throttleDroppable(),
     );
   }
 
