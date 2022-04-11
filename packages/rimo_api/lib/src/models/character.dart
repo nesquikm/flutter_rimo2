@@ -57,8 +57,11 @@ class CharacterLocation extends Equatable {
   /// The name of the location.
   final String name;
 
-  /// The name of the location.
+  /// The url of the location.
   final String url;
+
+  /// The id of the location.
+  int get id => int.parse(RegExp(r'[0-9]+$').firstMatch(url)!.group(0)!);
 
   @override
   List<Object> get props => [

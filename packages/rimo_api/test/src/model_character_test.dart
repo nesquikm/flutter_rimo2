@@ -60,4 +60,13 @@ void main() {
 
     expect(characterFromJson, characterProto);
   });
+
+  test('Character location', () {
+    const characterLocation = CharacterLocation(
+      name: '_name_',
+      url: 'https://rickandmortyapi.com/api/location/42',
+    );
+
+    expect(characterLocation.id, 42);
+  });
 }

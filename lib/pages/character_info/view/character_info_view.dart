@@ -21,11 +21,8 @@ class CharacterInfoView extends StatelessWidget {
           );
     }
 
-    void _onLocationTap(String? url) {
-      if (url == null || url.isEmpty) return;
-      final idString = RegExp(r'[0-9]+$').firstMatch(url)?.group(0);
-      if (idString == null) return;
-      final id = int.parse(idString);
+    void _onLocationTap(int? id) {
+      if (id == null) return;
       context.pushNamed(
         'location',
         params: {'page': 'chat', 'id': '$id'},
@@ -130,14 +127,14 @@ class CharacterInfoView extends StatelessWidget {
                         leading: const Icon(Icons.location_history),
                         title: Text(character?.origin.name ?? ''),
                         subtitle: Text(l10n.characterOriginLocation),
-                        onTap: () => _onLocationTap(character?.origin.url),
+                        onTap: () => _onLocationTap(character?.origin.id),
                         visualDensity: VisualDensity.compact,
                       ),
                       ListTile(
                         leading: const Icon(Icons.location_pin),
                         title: Text(character?.location.name ?? ''),
                         subtitle: Text(l10n.characterLastKnownLocation),
-                        onTap: () => _onLocationTap(character?.location.url),
+                        onTap: () => _onLocationTap(character?.location.id),
                         visualDensity: VisualDensity.compact,
                       ),
                     ],
