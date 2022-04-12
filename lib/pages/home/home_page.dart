@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _NavBarButton extends StatelessWidget {
+class _NavBarButton extends StatefulWidget {
   const _NavBarButton({
     Key? key,
     required this.name,
@@ -94,15 +94,78 @@ class _NavBarButton extends StatelessWidget {
   final Function(String) onPressed;
   final IconData icon;
 
+  bool get isActive => name == activeName;
+
+  @override
+  State<_NavBarButton> createState() => _NavBarButtonState();
+}
+
+class _NavBarButtonState extends State<_NavBarButton>
+    with TickerProviderStateMixin {
+  late final _controller = AnimationController(
+    duration: const Duration(milliseconds: 500),
+    value: widget.isActive ? 1 : 0,
+    vsync: this,
+  );
+  late final _scaleAnimation = Tween<double>(
+    begin: 1,
+    end: 1.2,
+  ).animate(
+    CurvedAnimation(
+      parent: _controller,
+      curve: const Interval(
+        0,
+        0.8,
+        curve: Curves.ease,
+      ),
+    ),
+  );
+
+  late final _colorAnimation = ColorTween(
+    begin: Theme.of(context).colorScheme.onPrimary,
+    end: Theme.of(context).colorScheme.secondary,
+  ).animate(
+    CurvedAnimation(
+      parent: _controller,
+      curve: const Interval(
+        0.8,
+        1,
+        curve: Curves.ease,
+      ),
+    ),
+  );
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant _NavBarButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (widget.isActive && !oldWidget.isActive) {
+      _controller.forward();
+    } else if (!widget.isActive && oldWidget.isActive) {
+      _controller.reverse();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () => onPressed(name),
-      iconSize: 32,
-      color:
-          name == activeName ? Theme.of(context).colorScheme.secondary : null,
-      icon: Icon(
-        icon,
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (_, __) => Transform.scale(
+        scale: _scaleAnimation.value,
+        child: IconButton(
+          onPressed: () => widget.onPressed(widget.name),
+          iconSize: 32,
+          color: _colorAnimation.value,
+          icon: Icon(
+            widget.icon,
+          ),
+        ),
       ),
     );
   }
