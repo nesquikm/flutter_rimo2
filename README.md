@@ -23,7 +23,7 @@ This is a humble example demonstrating:
   * full-featured [rickandmortyapi.com](https://rickandmortyapi.com) REST API client library in [packages/rimo_api](packages/rimo_api) with filters and paging support
   * light DialogFlow API client library with Firebase authentication in [packages/df_api](packages/df_api)
 * [hydrated_bloc](https://pub.dev/packages/hydrated_bloc) for caching data and app state (with navigation!) using [json_annotation](https://pub.dev/packages/json_annotation) for automatic serialization
-* [go_router](go_router) for navigation
+* [go_router](https://pub.dev/packages/go_router) for navigation
 * WEB ready with deep linking
 * 100% code coverage for [packages/rimo_api](packages/rimo_api)
 * Bloc and widget test examples
