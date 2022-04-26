@@ -62,8 +62,11 @@ class ChatViewMessage extends StatelessWidget {
                       const SizedBox(height: 8),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: SizedBox.fromSize(
-                          size: const Size.fromRadius(128),
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxHeight: 256,
+                            maxWidth: 256,
+                          ),
                           child: Image.network(
                             chatMessage.imageUrl!,
                             fit: BoxFit.cover,
