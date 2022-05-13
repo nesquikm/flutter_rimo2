@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/episode_info/bloc/episode_info_bloc.dart';
 import 'package:flutter_rimo2/pages/episode_info/view/episode_info_view.dart';
 
 class EpisodeInfoPage extends StatelessWidget {
-  const EpisodeInfoPage({Key? key, required this.id}) : super(key: key);
+  const EpisodeInfoPage({super.key, required this.id});
 
   final int id;
 

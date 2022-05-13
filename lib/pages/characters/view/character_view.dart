@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CharacterView extends StatelessWidget {
   const CharacterView({
-    Key? key,
+    super.key,
     required this.character,
     this.onTap,
-  }) : super(key: key);
+  });
   final Character character;
   final VoidCallback? onTap;
 

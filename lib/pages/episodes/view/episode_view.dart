@@ -2,8 +2,7 @@ import 'package:entities_repository/entities_repository.dart';
 import 'package:flutter/material.dart';
 
 class EpisodeView extends StatelessWidget {
-  const EpisodeView({Key? key, required this.episode, this.onTap})
-      : super(key: key);
+  const EpisodeView({super.key, required this.episode, this.onTap});
   final Episode episode;
   final VoidCallback? onTap;
 

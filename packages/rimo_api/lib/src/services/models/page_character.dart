@@ -10,8 +10,7 @@ part 'page_character.g.dart';
 @JsonSerializable()
 class PageCharacter extends Page<Character> {
   /// {@macro character_page}
-  const PageCharacter({required Info info, required List<Character> entities})
-      : super(info, entities);
+  const PageCharacter({required super.info, required super.entities});
 
   /// Create PageCharacter from json
   factory PageCharacter.fromJson(Map<String, dynamic> json) =>

@@ -10,8 +10,7 @@ part 'page_location.g.dart';
 @JsonSerializable()
 class PageLocation extends Page<Location> {
   /// {@macro location_page}
-  const PageLocation({required Info info, required List<Location> entities})
-      : super(info, entities);
+  const PageLocation({required super.info, required super.entities});
 
   /// Create PageLocation from json
   factory PageLocation.fromJson(Map<String, dynamic> json) =>

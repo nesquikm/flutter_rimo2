@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class CharacterInfoView extends StatelessWidget {
-  const CharacterInfoView({Key? key}) : super(key: key);
+  const CharacterInfoView({super.key});
 
   @override
   Widget build(BuildContext context) {

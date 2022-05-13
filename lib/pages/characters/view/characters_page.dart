@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/characters/bloc/characters_bloc.dart';
 import 'package:flutter_rimo2/pages/characters/view/characters_view.dart';
 
 class CharactersPage extends StatelessWidget {
-  const CharactersPage({Key? key}) : super(key: key);
+  const CharactersPage({super.key});
 
   @override
   Widget build(BuildContext context) {

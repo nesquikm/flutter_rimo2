@@ -10,8 +10,7 @@ part 'page_episode.g.dart';
 @JsonSerializable()
 class PageEpisode extends Page<Episode> {
   /// {@macro episode_page}
-  const PageEpisode({required Info info, required List<Episode> entities})
-      : super(info, entities);
+  const PageEpisode({required super.info, required super.entities});
 
   /// Create PageEpisode from json
   factory PageEpisode.fromJson(Map<String, dynamic> json) =>

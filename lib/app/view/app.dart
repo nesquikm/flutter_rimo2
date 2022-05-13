@@ -17,10 +17,10 @@ import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
   const App({
-    Key? key,
+    super.key,
     this.entitiesRepository,
     this.dfRepository,
-  }) : super(key: key);
+  });
 
   final EntitiesRepository? entitiesRepository;
   final DfRepository? dfRepository;
@@ -45,7 +45,7 @@ class App extends StatelessWidget {
 }
 
 class AppView extends StatelessWidget {
-  const AppView({Key? key}) : super(key: key);
+  const AppView({super.key});
 
   @override
   Widget build(BuildContext context) {

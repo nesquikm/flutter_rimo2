@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/location_info/bloc/location_info_bloc.dart';
 import 'package:flutter_rimo2/pages/location_info/view/location_info_view.dart';
 
 class LocationInfoPage extends StatelessWidget {
-  const LocationInfoPage({Key? key, required this.id}) : super(key: key);
+  const LocationInfoPage({super.key, required this.id});
 
   final int id;
 

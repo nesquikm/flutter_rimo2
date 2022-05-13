@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/location_info/bloc/location_info_bloc.dart';
 import 'package:intl/intl.dart';
 
 class LocationInfoView extends StatelessWidget {
-  const LocationInfoView({Key? key}) : super(key: key);
+  const LocationInfoView({super.key});
 
   @override
   Widget build(BuildContext context) {

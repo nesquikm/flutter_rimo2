@@ -2,8 +2,7 @@ import 'package:entities_repository/entities_repository.dart';
 import 'package:flutter/material.dart';
 
 class LocationView extends StatelessWidget {
-  const LocationView({Key? key, required this.location, this.onTap})
-      : super(key: key);
+  const LocationView({required this.location, this.onTap, super.key});
   final Location location;
   final VoidCallback? onTap;
 

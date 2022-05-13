@@ -7,7 +7,7 @@ import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class EpisodesView extends StatefulWidget {
-  const EpisodesView({Key? key}) : super(key: key);
+  const EpisodesView({super.key});
 
   @override
   State<EpisodesView> createState() => _EpisodesViewState();

@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/episode_info/bloc/episode_info_bloc.dart';
 import 'package:intl/intl.dart';
 
 class EpisodeInfoView extends StatelessWidget {
-  const EpisodeInfoView({Key? key}) : super(key: key);
+  const EpisodeInfoView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -75,7 +75,7 @@ class CharacterLocation extends Equatable {
 class Character extends Entity {
   /// Create explicit character
   const Character({
-    required int id,
+    required super.id,
     required this.name,
     required this.status,
     required this.species,
@@ -87,7 +87,7 @@ class Character extends Entity {
     required this.episode,
     required this.url,
     required this.created,
-  }) : super(id: id);
+  });
 
   /// Create character location from json
   factory Character.fromJson(Map<String, dynamic> json) =>

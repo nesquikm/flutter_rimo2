@@ -8,14 +8,14 @@ part 'location.g.dart';
 class Location extends Entity {
   /// Create explicit location
   const Location({
-    required int id,
+    required super.id,
     required this.name,
     required this.type,
     required this.dimension,
     required this.residents,
     required this.url,
     required this.created,
-  }) : super(id: id);
+  });
 
   /// Create location from json
   factory Location.fromJson(Map<String, dynamic> json) =>

@@ -7,7 +7,7 @@ import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class LocationsView extends StatefulWidget {
-  const LocationsView({Key? key}) : super(key: key);
+  const LocationsView({super.key});
 
   @override
   State<LocationsView> createState() => _LocationsViewState();

@@ -4,8 +4,7 @@ import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class ChatViewMessage extends StatelessWidget {
-  const ChatViewMessage({Key? key, required this.chatMessage})
-      : super(key: key);
+  const ChatViewMessage({super.key, required this.chatMessage});
 
   final ChatMessage chatMessage;
 

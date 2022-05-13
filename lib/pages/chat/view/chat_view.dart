@@ -7,7 +7,7 @@ import 'package:flutter_rimo2/pages/chat/bloc/chat_bloc.dart';
 import 'package:flutter_rimo2/pages/chat/view/chat_view_message.dart';
 
 class ChatView extends StatefulWidget {
-  const ChatView({Key? key}) : super(key: key);
+  const ChatView({super.key});
 
   @override
   State<ChatView> createState() => _ChatViewState();

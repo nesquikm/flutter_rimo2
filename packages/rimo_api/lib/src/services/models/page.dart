@@ -6,7 +6,7 @@ import 'package:rimo_api/src/models/models.dart';
 /// {@endtemplate}
 abstract class Page<E extends Entity> extends Equatable {
   /// {@macro page}
-  const Page(this.info, this.entities);
+  const Page({required this.info, required this.entities});
 
   /// An info object
   final Info info;

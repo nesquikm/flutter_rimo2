@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/character_info/bloc/character_info_bloc.dart
 import 'package:flutter_rimo2/pages/character_info/view/character_info_view.dart';
 
 class CharacterInfoPage extends StatelessWidget {
-  const CharacterInfoPage({Key? key, required this.id}) : super(key: key);
+  const CharacterInfoPage({super.key, required this.id});
 
   final int id;
 

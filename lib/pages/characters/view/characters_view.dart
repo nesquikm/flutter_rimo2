@@ -7,7 +7,7 @@ import 'package:flutter_rimo2/pages/pages.dart';
 import 'package:go_router/go_router.dart';
 
 class CharactersView extends StatefulWidget {
-  const CharactersView({Key? key}) : super(key: key);
+  const CharactersView({super.key});
 
   @override
   State<CharactersView> createState() => _CharactersViewState();

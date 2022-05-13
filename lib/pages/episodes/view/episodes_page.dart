@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/episodes/bloc/episodes_bloc.dart';
 import 'package:flutter_rimo2/pages/episodes/view/episodes_view.dart';
 
 class EpisodesPage extends StatelessWidget {
-  const EpisodesPage({Key? key}) : super(key: key);
+  const EpisodesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

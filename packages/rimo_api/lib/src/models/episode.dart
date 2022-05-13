@@ -8,14 +8,14 @@ part 'episode.g.dart';
 class Episode extends Entity {
   /// Create explicit episode
   const Episode({
-    required int id,
+    required super.id,
     required this.name,
     required this.airDate,
     required this.episode,
     required this.characters,
     required this.url,
     required this.created,
-  }) : super(id: id);
+  });
 
   /// Create episode from json
   factory Episode.fromJson(Map<String, dynamic> json) =>

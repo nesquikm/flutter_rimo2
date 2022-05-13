@@ -5,7 +5,7 @@ import 'package:flutter_rimo2/pages/locations/bloc/locations_bloc.dart';
 import 'package:flutter_rimo2/pages/locations/view/locations_view.dart';
 
 class LocationsPage extends StatelessWidget {
-  const LocationsPage({Key? key}) : super(key: key);
+  const LocationsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

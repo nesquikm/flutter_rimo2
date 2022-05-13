@@ -18,7 +18,7 @@ enum InfoPageName {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.pageName}) : super(key: key);
+  const HomePage({super.key, required this.pageName});
 
   static List<String> pageList =
       HomePageName.values.map((e) => e.name).toList();
@@ -82,12 +82,11 @@ class HomePage extends StatelessWidget {
 
 class _NavBarButton extends StatefulWidget {
   const _NavBarButton({
-    Key? key,
     required this.name,
     required this.activeName,
     required this.onPressed,
     required this.icon,
-  }) : super(key: key);
+  });
 
   final String name;
   final String activeName;
